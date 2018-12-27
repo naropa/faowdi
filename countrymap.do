@@ -2,7 +2,6 @@
 Creates a one-to-one country mapping for FAO and WDI country codes.
 ****************/
 
-tempfile faocountries
 insheet using "$faocodespath/$faocountries"
 keep countrycode country iso2code
 rename countrycode FAOcc
@@ -14,13 +13,13 @@ drop if FAOcc == 206 // Drop "Sudan (former)" in order to have a one-to-one mapp
 //bysort FAOcc: gen ccdupflag = cond(_N==1,0,_n)
 // Check for duplicates in iso2code
 //bysort iso2code: gen iso2dupflag = cond(_N==1,0,_n)
+tempfile faocountries
 save `faocountries', replace
 
 clear
 
 /* Test if WDI data has a one-to-one relationship between countrycode and iso2code
 
-tempfile wdicountries
 wbopendata, language(en - English) country() topics($wdi_tc) indicator() clear long
 keep countryname countrycode iso2code
 rename countryname WDIcountry
@@ -31,6 +30,7 @@ duplicates drop
 //bysort WDIcc: gen ccdupflag = cond(_N==1,0,_n)
 // Check for duplicates in iso2code
 //bysort iso2code: gen iso2dupflag = cond(_N==1,0,_n)
+tempfile wdicountries
 save `wdicountries', replace
 
 clear
@@ -40,5 +40,6 @@ merge 1:1 iso2code using `wdicountries'
 */
 
 use `faocountries'
+capture mkdir files
 save "$filespath/countrymap", replace
 
