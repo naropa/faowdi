@@ -6,7 +6,6 @@ levelsof countrygroupcode, local(groupcode)
 set more off
 
 foreach i of local groupcode {
-
     capture mkdir "$filespath/`i'" // ignore error if directory exists
     preserve
     keep if countrygroupcode == `i'
@@ -14,7 +13,6 @@ foreach i of local groupcode {
     duplicates drop
     levelsof countrycode, local(countrycodevals)
     foreach j of local countrycodevals {
-    
         capture confirm file "$filespath/all_`j'.dta"
         if _rc == 0 {
             cp "$filespath/all_`j'.dta" "$filespath/`i'/", replace            
@@ -28,7 +26,6 @@ foreach i of local groupcode {
 
 // make files showing included and excluded countries
 foreach i of local groupcode {
-
     preserve
     keep if countrygroupcode == `i'
     keep countrycode country countrygroup
@@ -40,7 +37,6 @@ foreach i of local groupcode {
     levelsof countrycode, local(countrycodevals)
 
     foreach j of local countrycodevals {
-
         clear
         use "$filespath/`i'/group_all"
         capture confirm file "$filespath/all_`j'.dta"
