@@ -1,6 +1,14 @@
-// Runs complete program.
-
-clear
+*-------------------------------------
+* Runs complete program
+*-------------------------------------
+*-------------------------------------
+* Program setup
+*-------------------------------------
+version 13
+set more off
+clear all
+set linesize 80
+*-------------------------------------
 
 do params
 do countrymap

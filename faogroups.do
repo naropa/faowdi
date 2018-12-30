@@ -1,9 +1,17 @@
-// Copy files to folders for each country group
+*-------------------------------------
+* Copy program outputted files to folders for each country group
+*-------------------------------------
+*-------------------------------------
+* Program setup
+*-------------------------------------
+version 13
+set more off
+clear all
+set linesize 80
+*-------------------------------------
 
-clear
 insheet using "$faopath/codes/$faogroups"
 levelsof countrygroupcode, local(groupcode)
-set more off
 
 foreach i of local groupcode {
     capture mkdir "$filespath/`i'" // ignore error if directory exists
@@ -63,4 +71,3 @@ foreach i of local groupcode {
     restore
 }
 clear
-

@@ -1,11 +1,19 @@
-// Merge faostat and wdi data
+*-------------------------------------
+* Merge faostat and wdi data
+*-------------------------------------
+*-------------------------------------
+* Program setup
+*-------------------------------------
+version 13
+set more off
+clear all
+set linesize 80
+*-------------------------------------
 
-clear
 use "$filespath/countrymap"
 levelsof FAOcc, local(countrycodevals)
 clear
 
-set more off
 foreach k of local countrycodevals {
 
     capture confirm file "$filespath/fao_`k'.dta"
@@ -16,7 +24,7 @@ foreach k of local countrycodevals {
         use "$filespath/fao_`k'"
         merge 1:1 year using "$filespath/wdi_`k'"
         sort year
-        keep if _merge == 3 // only keep years that contained data in both faostat and wdi
+        keep if _merge == 3 // only keep years that contain data in both faostat and wdi
         drop _merge
         save "$filespath/all_`k'", replace
         clear

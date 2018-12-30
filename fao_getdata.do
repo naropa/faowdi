@@ -1,6 +1,16 @@
+*-------------------------------------
+* Import FAOSTAT data and extract user-selected countries, items, and element
+*-------------------------------------
+*-------------------------------------
+* Program setup
+*-------------------------------------
+version 13
+set more off
+clear all
+set linesize 80
+*-------------------------------------
 
 // Import dataset downloaded from FAOSTAT, add ISO2 code, and drop all aggregate country groups
-clear
 insheet using "$faopath/$datafile"
 rename areacode FAOcc
 rename area FAOcountry
@@ -16,7 +26,6 @@ if "$cc" != "" {
     keep if inlist(FAOcc,$cc) 
 }
 
-set more off
 levelsof FAOcc, local(countrycodevals)
 clear
 foreach k of local countrycodevals {
@@ -58,4 +67,3 @@ foreach k of local countrycodevals {
         clear
     }
 }
-

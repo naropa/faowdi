@@ -1,17 +1,25 @@
-// Runs regressions on user-selected variables for all countries and stores results in files named reg_COUNTRYCODE (for each country) and allregs (for all countries).
-// Requires -parmest- stata package
+*-------------------------------------
+* Runs regressions on user-selected variables for all countries.
+* Stores results in files named reg_COUNTRYCODE (for each country) and allregs (for all countries).
+* Requires -parmest- stata package.
+*-------------------------------------
+*-------------------------------------
+* Program setup
+*-------------------------------------
+version 13
+set more off
+clear all
+set linesize 80
+*-------------------------------------
 
 // Set variables to include in regression (dependent variable first), comma-space separated (important!)
-local vars = "Meat, sp_rur_totl, Vegetal_Products"
 
+local vars = "Meat, sp_rur_totl, Vegetal_Products" // set regression variables
 local varsnocommas = subinstr(`""`vars'""',",","",.) // remove commas from string
 local varss = `varsnocommas' // for some reason varsnocommas is not working in place of varss
 
-set more off
-
 // Run regressions and save results in individual country files named reg_COUNTRYCODE
 
-clear
 use "$filespath/countrymap"
 levelsof FAOcc, local(countrycodevals)
 clear
@@ -24,7 +32,6 @@ foreach k of local countrycodevals {
         keep `varss'
         // check if sufficient observations for regression
         if _N > 1  & missing(`vars') != 1 {
-            //statsby _b _se _N, clear: reg `varss'
             parmby "reg `varss'", norestore
             gen FAOcc = `k'
             save "$filespath/reg_`k'", replace

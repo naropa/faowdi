@@ -1,7 +1,16 @@
-// Gets WDI data from world bank and formats it for combining with FAOSTAT data.
+*-------------------------------------
+* Get WDI data from World Bank and format it for combining with FAOSTAT data
+*-------------------------------------
+*-------------------------------------
+* Program setup
+*-------------------------------------
+version 13
+set more off
+clear all
+set linesize 80
+*-------------------------------------
 
 // Get data for user-selected countries and indicators/topics
-clear
 wbopendata, language(en - English) country() topics($wdi_tc) indicator() clear long
 
 // Add FAO countrycodes
@@ -16,7 +25,6 @@ save "$filespath/wdidata", replace
 // Save individual country files
 levelsof FAOcc, local(countrycodevals)
 preserve
-set more off
 foreach i of local countrycodevals {
     keep if FAOcc == `i'
     save "$filespath/wdi_`i'", replace

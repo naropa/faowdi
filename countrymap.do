@@ -1,6 +1,15 @@
-/***************
-Creates a one-to-one country mapping for FAO and WDI country codes.
-****************/
+*-------------------------------------
+* Creates a one-to-one country mapping for FAO and WDI country codes
+* Includes tests for duplicates in each variable
+*-------------------------------------
+*-------------------------------------
+* Program setup
+*-------------------------------------
+version 13
+set more off
+clear all
+set linesize 80
+*-------------------------------------
 
 insheet using "$faocodespath/$faocountries"
 keep countrycode country iso2code
@@ -42,4 +51,3 @@ merge 1:1 iso2code using `wdicountries'
 use `faocountries'
 capture mkdir files
 save "$filespath/countrymap", replace
-
