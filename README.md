@@ -1,6 +1,6 @@
 ### Introduction
 
-This program merges FAOSTAT and WDI data for user-selected items and countries.  It then (optionally) runs regressions on user-selected variables and compiles all results into a single dataset.
+This program merges FAOSTAT and WDI data for user-selected items and countries in Stata.  It then (optionally) runs regressions on user-selected variables and compiles all results into a single dataset.
 
 ### Instructions
 
