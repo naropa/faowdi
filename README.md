@@ -18,17 +18,17 @@ This program merges FAOSTAT and WDI data for user-selected items and countries. 
 
 ### Output
 
-**files/allregs.dta** contains regression results for all countries
-**files/COUNTRYGROUPCODE/allregs.dta** contains regression results for all countries in COUNTRYGROUP
+**files/allregs.dta** contains regression results for all countries.
+**files/COUNTRYGROUPCODE/allregs.dta** contains regression results for all countries in COUNTRYGROUP.
 
-**files/reg_COUNTRYCODE.dta** contains regression results for COUNTRYCODE
-**files/all_COUNTRYCODE.dta** contains merged FAOSTAT and WDI data for COUNTRYCODE
+**files/reg_COUNTRYCODE.dta** contains regression results for COUNTRYCODE.
+**files/all_COUNTRYCODE.dta** contains merged FAOSTAT and WDI data for COUNTRYCODE.
 
-**files/COUNTRYGROUPCODE/\*.dta** *(same structure as above)*
+**files/COUNTRYGROUPCODE/\*.dta** *(same structure as above)*.
 
 Intermediate files:
-**files/fao_COUNTRYCODE.dta** contains user-selected FAOSTAT data for COUNTRYCODE
-**files/wdi_COUNTRYCODE.dta** contains user-selected WDI data for COUNTRYCODE
+**files/fao_COUNTRYCODE.dta** contains user-selected FAOSTAT data for COUNTRYCODE.
+**files/wdi_COUNTRYCODE.dta** contains user-selected WDI data for COUNTRYCODE.
 
 ### Folders
 
