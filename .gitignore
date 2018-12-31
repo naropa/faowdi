@@ -3,4 +3,4 @@ files/*/*.dta
 FAO_data/*.csv
 FAO_data/*.zip
 FAO_data/codes/*.csv
-
+log/*
