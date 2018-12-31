@@ -1,6 +1,22 @@
 ### Introduction
 
-This program merges FAOSTAT and WDI data for user-selected items and countries.  The result is outputted to individual files for each country containing the user-selected variables from FAOSTAT and WDI for the full time range available.
+This program merges FAOSTAT and WDI data for user-selected items and countries.  It then (optionally) runs regressions on user-selected variables.  Regression results for are stored in a single dataset for all countries as well as for FAOSTAT country groups.  For example, the user may analyze summary statistcs on parameter estimates, t-statistics, p-values, and confidence intervals for all countries, or various FAO country groups such as Sub-Saharan Africa, Land Locked Developing Countries, 
+
+ The result is outputted to individual files for each country containing the user-selected variables from FAOSTAT and WDI for the full time range available.
+
+### Output
+
+**files/allregs.dta** contains regression results for all countries
+**files/COUNTRYGROUPCODE/allregs.dta** contains regression results for all countries in COUNTRYGROUP
+
+**files/reg_COUNTRYCODE.dta** contains regression results for COUNTRYCODE
+**files/all_COUNTRYCODE.dta** contains merged FAOSTAT and WDI data for COUNTRYCODE
+
+**files/COUNTRYGROUPCODE/\*.dta** *(same structure as above)*
+
+Intermediate files:
+**files/fao_COUNTRYCODE.dta** contains user-selected FAOSTAT data for COUNTRYCODE
+**files/wdi_COUNTRYCODE.dta** contains user-selected WDI data for COUNTRYCODE
 
 ### Instructions
 
@@ -8,11 +24,13 @@ This program merges FAOSTAT and WDI data for user-selected items and countries. 
 2. Populate the /FAO_data and /FAO_data/codes folders with files downloaded from FAOSTAT (see README files in those folders)
 3. Set parameters in params.do
 4. Run runprog.do
+5. Run regs.do (optional)
 
 ### Required Stata packages
 
 - touch
 - wbopendata
+- parmest (only required for regs.do)
 
 ### Output
 
