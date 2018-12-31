@@ -13,8 +13,8 @@ set linesize 80
 
 insheet using "$faocodespath/$faocountries"
 keep countrycode country iso2code
-rename countrycode FAOcc
-rename country FAOcountry
+rename countrycode      FAOcc
+rename country          FAOcountry
 drop if iso2code == ""
 duplicates drop
 drop if FAOcc == 206 // Drop "Sudan (former)" in order to have a one-to-one mapping between FAO country code and ISO2 code
@@ -31,8 +31,8 @@ clear
 
 wbopendata, language(en - English) country() topics($wdi_tc) indicator() clear long
 keep countryname countrycode iso2code
-rename countryname WDIcountry
-rename countrycode WDIcc
+rename countryname      WDIcountry
+rename countrycode      WDIcc
 drop if iso2code == ""
 duplicates drop
 // Check for duplicates in countrycode

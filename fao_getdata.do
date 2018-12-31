@@ -12,8 +12,8 @@ set linesize 80
 
 // Import dataset downloaded from FAOSTAT, add ISO2 code, and drop all aggregate country groups
 insheet using "$faopath/$datafile"
-rename areacode FAOcc
-rename area FAOcountry
+rename areacode     FAOcc
+rename area         FAOcountry
 merge m:1 FAOcc using "$filespath/countrymap" // add ISO2 code
 keep if _merge == 3 // drop aggregate data for country groups
 drop _merge
