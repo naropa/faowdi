@@ -26,7 +26,7 @@ This program merges FAOSTAT and WDI data for user-selected items and countries. 
 
 **files/COUNTRYGROUPCODE/\*.dta** *(same structure as above)*.
 
-Intermediate files:
+Intermediate files:  
 **files/fao_COUNTRYCODE.dta** contains user-selected FAOSTAT data for COUNTRYCODE.  
 **files/wdi_COUNTRYCODE.dta** contains user-selected WDI data for COUNTRYCODE.
 
