@@ -1,22 +1,6 @@
 ### Introduction
 
-This program merges FAOSTAT and WDI data for user-selected items and countries.  It then (optionally) runs regressions on user-selected variables.  Regression results for are stored in a single dataset for all countries as well as for FAOSTAT country groups.  For example, the user may analyze summary statistcs on parameter estimates, t-statistics, p-values, and confidence intervals for all countries, or various FAO country groups such as Sub-Saharan Africa, Land Locked Developing Countries, 
-
- The result is outputted to individual files for each country containing the user-selected variables from FAOSTAT and WDI for the full time range available.
-
-### Output
-
-**files/allregs.dta** contains regression results for all countries
-**files/COUNTRYGROUPCODE/allregs.dta** contains regression results for all countries in COUNTRYGROUP
-
-**files/reg_COUNTRYCODE.dta** contains regression results for COUNTRYCODE
-**files/all_COUNTRYCODE.dta** contains merged FAOSTAT and WDI data for COUNTRYCODE
-
-**files/COUNTRYGROUPCODE/\*.dta** *(same structure as above)*
-
-Intermediate files:
-**files/fao_COUNTRYCODE.dta** contains user-selected FAOSTAT data for COUNTRYCODE
-**files/wdi_COUNTRYCODE.dta** contains user-selected WDI data for COUNTRYCODE
+This program merges FAOSTAT and WDI data for user-selected items and countries.  It then (optionally) runs regressions on user-selected variables and compiles all results into a single dataset.
 
 ### Instructions
 
@@ -34,7 +18,17 @@ Intermediate files:
 
 ### Output
 
-Outputted files are saved with the naming convention all_COUNTRYCODE, where COUNTRYCODE is the FAO country code. These files are stored in the /files folder (see folder descriptions below), as well as in the /files/COUNTRYGROUPCODE folders (see folder descriptions below).
+**files/allregs.dta** contains regression results for all countries
+**files/COUNTRYGROUPCODE/allregs.dta** contains regression results for all countries in COUNTRYGROUP
+
+**files/reg_COUNTRYCODE.dta** contains regression results for COUNTRYCODE
+**files/all_COUNTRYCODE.dta** contains merged FAOSTAT and WDI data for COUNTRYCODE
+
+**files/COUNTRYGROUPCODE/\*.dta** *(same structure as above)*
+
+Intermediate files:
+**files/fao_COUNTRYCODE.dta** contains user-selected FAOSTAT data for COUNTRYCODE
+**files/wdi_COUNTRYCODE.dta** contains user-selected WDI data for COUNTRYCODE
 
 ### Folders
 
