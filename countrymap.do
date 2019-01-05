@@ -8,7 +8,6 @@
 version 13
 set more off
 clear all
-set linesize 80
 *-------------------------------------
 
 insheet using "$faocodespath/$faocountries"

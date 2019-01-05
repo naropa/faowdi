@@ -9,7 +9,6 @@
 version 13
 set more off
 clear all
-set linesize 80
 *-------------------------------------
 
 // Set variables to include in regression (dependent variable first), comma-space separated (important!)

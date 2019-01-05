@@ -7,7 +7,6 @@
 version 13
 set more off
 clear all
-set linesize 80
 *-------------------------------------
 
 // Import dataset downloaded from FAOSTAT, add ISO2 code, and drop all aggregate country groups

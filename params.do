@@ -7,7 +7,6 @@
 version 13
 set more off
 clear all
-set linesize 80
 *-------------------------------------
 
 /*****************FAOSTAT ELEMENT, ITEM, AND COUNTRY CODES*****************/
@@ -26,13 +25,16 @@ global cc = "" // all countries
 //global cc = "3,7"
 
 /******************WDI INDICATORS OR TOPICS*******************/
+// Chooseing a signle topic returns all indicators associated with that topic.
+// 
 
-// Choose topic code
+// Choose topic code (single selection)
 global wdi_tc = "1"
 
 //OR
 
 // Choose indicators
+
 
 /*******************FILE AND FOLDER PATHS*********************/
 
